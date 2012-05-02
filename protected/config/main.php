@@ -54,7 +54,7 @@ return array(
     'language' => 'vi',
     'params' => array(
         'fastcache' => $fastCache,
-        'languages' => array('en' => 'English', 'vi' => 'Vietnamese', 'he' => 'Hebrew'),
+        'languages' => array('en' => 'English', 'vi' => 'Vietnamese'),
         'subdomain_languages' => false,
         'loggedInDays' => 10,
         'current_domain' => $current_domain,
