@@ -50,7 +50,7 @@
 	<div id="header">
 		<a href="<?php echo $this->createUrl( 'index/index' ); ?>" class="replace" id="logo"><span></span>logo</a>
 		<ul id="menutop">
-			<li><a href="<?php echo $this->createUrl('index/index', array('lang'=>'he')); ?>"><?php echo Yii::t('global', 'Hebrew'); ?></a></li>
+			<li><a href="<?php echo $this->createUrl('index/index', array('lang'=>'vi')); ?>"><?php echo Yii::t('global', 'Vietnamese'); ?></a></li>
 			<li class="last"><a href="<?php echo $this->createUrl('index/index', array('lang'=>'en')); ?>"><?php echo Yii::t('global', 'English'); ?></a></li>
 		</ul>
 	</div>
