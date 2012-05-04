@@ -98,6 +98,8 @@ class CustomUrlManager extends CUrlManager {
                     "http://{$domain}/user/<uid:(\d+)>-<alias:(.*)>" => array('site/users/viewprofile'),
                     // Forum Topics
                     "http://{$domain}/forum/topic/<topicid:(\d+)>-<alias:(.*?)>/*" => array('site/forum/viewtopic'),
+                    // Documentation
+                    "http://{$domain}/documentation/guide/topic/<topic:(.*)>/lang/<lang:(.*)>" => array('site/documentation/guide'),
                 );
             }
 

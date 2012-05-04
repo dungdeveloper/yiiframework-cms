@@ -1,13 +1,12 @@
+<?php //$this->widget('widgets.menuslide');  ?>
+
 <div id='indexcontent'>
     <div id="maincontent">
         <div id="contentleft">
             <h2><?php echo Yii::t('index', 'What is Yii?'); ?></h2>
             <p class="textintro"><?php echo Yii::t('index', 'Yii is a high-performance  component-based PHP framework for developing large-scale Web applications.'); ?></p>
-
             <p><?php echo Yii::t('index', 'Yii enables maximum reusability in Web programming and can significantly accelerate the development process. The name Yii (pronounced as Yee or [ji:]) stands for easy, efficient and extensible.'); ?></p>
-
             <h4><?php echo Yii::t('index', 'Main Feature List'); ?></h4>
-
             <ul>
                 <li><?php echo Yii::t('index', 'MVC design pattern'); ?></li>
                 <li><?php echo Yii::t('index', 'DAO and Active Record'); ?></li>
@@ -24,28 +23,24 @@
                 <li><?php echo CHtml::link(Yii::t('index', 'View complete feature list'), array('/features', 'lang' => false)); ?></li>
             </ul>
 
-<!--<h2><?php echo Yii::t('index', 'Latest Extensions'); ?></h2>
-<ul class="listmenusmall">-->
-
-            <?php echo $facebook->showLikeBox('128360757178028', 292, 300, 10, 'false'); ?>
-
-            <?php /* if($this->beginCache('indexextensions_' . Yii::app()->language, array('duration'=>3600))) { ?>
-              <?php $exts = Extensions::model()->byDate()->byLang()->limitIndex()->findAll('status=1'); ?>
-              <?php if( is_array($exts) && count($exts) ): ?>
-              <?php foreach($exts as $ext): ?>
+            <h2><?php echo Yii::t('index', 'Latest Extensions'); ?></h2>
+            <ul class="listmenusmall">            
+            <?php if($this->beginCache('indexextensions_' . Yii::app()->language, array('duration'=>3600))) { 
+               $exts = Extensions::model()->byDate()->byLang()->limitIndex()->findAll('status=1'); 
+               if( is_array($exts) && count($exts) ): 
+                foreach($exts as $ext): ?>
               <li><?php echo Extensions::model()->getLink( $ext->title, $ext->alias, array( 'title' => $ext->description ) ); ?></li>
               <?php endforeach; ?>
               <?php else: ?>
               <li><?php echo Yii::t('index', 'No Extensions Available.'); ?></li>
               <?php endif; ?>
-              <?php $this->endCache(); } */ ?>
-
-            <!--</ul>-->
+              <?php $this->endCache(); } ?>
+            </ul>
+            <?php echo $facebook->showLikeBox('128360757178028', 292, 300, 10, 'false'); ?>
         </div>
         <div id="contentright">
             <h2><?php echo Yii::t('index', 'Latest Tutorials'); ?></h2>
             <ul class="listmenusmall">
-
                 <?php if ($this->beginCache('indextutorials_' . Yii::app()->language, array('duration' => 3600))) { ?>
                     <?php $tuts = Tutorials::model()->byDate()->byLang()->limitIndex()->findAll('status=1'); ?>
                     <?php if (is_array($tuts) && count($tuts)): ?>
@@ -55,28 +50,29 @@
                     <?php else: ?>
                         <li><?php echo Yii::t('index', 'No Tutorials Available.'); ?></li>
                     <?php endif; ?>
-                    <?php $this->endCache();
-                } ?>
-
+                    <?php
+                    $this->endCache();
+                }
+                ?>
             </ul>
             <h3><?php echo Yii::t('index', 'Why should you use Yii?'); ?></h3>
             <ul class="listicon">
                 <li class="icon9">
 
                     <strong><?php echo Yii::t('index', 'Easy'); ?></strong><br />
-<?php echo Yii::t('index', 'Yii is easy to learn and use. You only need to know PHP and object-oriented programming. You are not forced to learn a new configuration or templating language.'); ?>
+                    <?php echo Yii::t('index', 'Yii is easy to learn and use. You only need to know PHP and object-oriented programming. You are not forced to learn a new configuration or templating language.'); ?>
                 </li>
                 <li class="icon9">
                     <strong><?php echo Yii::t('index', 'Well Documented'); ?></strong><br />
-<?php echo Yii::t('index', 'Yii has very detailed {doc}. From the definitive guide to class reference, Yii has every information you need to quickly learn and master it.', array('{doc}' => CHtml::link(Yii::t('index', 'Documentation'), array('/documentation', 'lang' => false)))); ?>
+                    <?php echo Yii::t('index', 'Yii has very detailed {doc}. From the definitive guide to class reference, Yii has every information you need to quickly learn and master it.', array('{doc}' => CHtml::link(Yii::t('index', 'Documentation'), array('/documentation', 'lang' => false)))); ?>
                 </li>
                 <li class="icon9">
                     <strong><?php echo Yii::t('index', 'Feature Rich'); ?></strong><br />
-<?php echo Yii::t('index', 'Yii comes with a rich set of features. From MVC, DAO/ActiveRecord, to theming, internationalization and localization, Yii provides nearly every feature needed by today\'s Web 2.0 application development.'); ?>
+                    <?php echo Yii::t('index', 'Yii comes with a rich set of features. From MVC, DAO/ActiveRecord, to theming, internationalization and localization, Yii provides nearly every feature needed by today\'s Web 2.0 application development.'); ?>
                 </li>
                 <li class="icon9">
                     <strong><?php echo Yii::t('index', 'Free!'); ?></strong><br />
-<?php echo Yii::t('index', 'Last but not least, Yii is free! Yii uses the new BSD license, and it also ensures that the third-party work it integrates with use BSD-compatible licenses. This means it is both financially and lawfully free for you to use Yii to develop either open source or proprietary applications.'); ?>
+                    <?php echo Yii::t('index', 'Last but not least, Yii is free! Yii uses the new BSD license, and it also ensures that the third-party work it integrates with use BSD-compatible licenses. This means it is both financially and lawfully free for you to use Yii to develop either open source or proprietary applications.'); ?>
                 </li>	
             </ul>
         </div>
@@ -85,14 +81,15 @@
     <div id="nav">
         <div class="boxnav">
             <h2><?php echo Yii::t('index', 'Yii Key Features'); ?></h2>
-
             <ul class="menuiconnav">
-                <li class="icon11"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'basics.mvc', 'lang' => false)); ?>"><?php echo Yii::t('index', 'MVC Architecture'); ?></a></li>
-                <li class="icon12"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'database.overview', 'lang' => false)); ?>"><?php echo Yii::t('index', 'Database, DAO/ActiveRecord'); ?></a></li>
-                <li class="icon3"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'topics.i18n', 'lang' => false)); ?>"><?php echo Yii::t('index', 'Multilingual, I18N/L10N'); ?></a></li>
-                <li class="icon13"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'basics.view', 'lang' => false)); ?>"><?php echo Yii::t('index', 'Widgets Management'); ?></a></li>
-                <li class="icon14"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'topics.theming', 'lang' => false)); ?>"><?php echo Yii::t('index', 'Theme Control'); ?></a></li>
-
+                <li class="icon11">
+                    <a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'basics.mvc')); ?>">
+                        <?php echo Yii::t('index', 'MVC Architecture'); ?>
+                </a></li>
+                <li class="icon12"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'database.overview')); ?>"><?php echo Yii::t('index', 'Database, DAO/ActiveRecord'); ?></a></li>
+                <li class="icon3"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'topics.i18n')); ?>"><?php echo Yii::t('index', 'Multilingual, I18N/L10N'); ?></a></li>
+                <li class="icon13"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'basics.view')); ?>"><?php echo Yii::t('index', 'Widgets Management'); ?></a></li>
+                <li class="icon14"><a href="<?php echo Yii::app()->createUrl('documentation/guide', array('topic' => 'topics.theming')); ?>"><?php echo Yii::t('index', 'Theme Control'); ?></a></li>
             </ul>
         </div>
         <div class="boxnavnoborder">
@@ -110,15 +107,14 @@
 
             <a name='newsletterform'></a>
             <?php echo CHtml::form('#newsletterform'); ?>
-            <?php echo CHtml::activeLabel($model, 'email'); ?><br />
-            <?php echo CHtml::activeTextField($model, 'email', array('class' => 'textboxcontact', 'style' => 'width:auto;', 'onfocus' => "this.value='';")); ?>
-            <?php echo CHtml::error($model, 'email'); ?>
-            <?php if ($sent): ?>
-                <br /><span style='color:green;'><?php echo Yii::t('index', 'Thank you. You are now subscribed to our newsletter.'); ?></span>
-            <?php endif; ?>	
-            <br /><br /><p><?php echo CHtml::submitButton(Yii::t('index', 'Subscribe'), array('name' => 'newsletter')); ?></p>
-<?php echo CHtml::endForm(); ?>
-
+                <?php echo CHtml::activeLabel($model, 'email'); ?><br />
+                <?php echo CHtml::activeTextField($model, 'email', array('class' => 'textboxcontact', 'style' => 'width:auto;', 'onfocus' => "this.value='';")); ?>
+                <?php echo CHtml::error($model, 'email'); ?>
+                <?php if ($sent): ?>
+                    <br /><span style='color:green;'><?php echo Yii::t('index', 'Thank you. You are now subscribed to our newsletter.'); ?></span>
+                <?php endif; ?>	
+                <br /><br /><p><?php echo CHtml::submitButton(Yii::t('index', 'Subscribe'), array('name' => 'newsletter')); ?></p>
+            <?php echo CHtml::endForm(); ?>
 
             <div class="clear"></div>
         </div>
@@ -126,4 +122,76 @@
 </div>
 <div class="clear"></div>
 
-<?php echo $facebook->includeScript(Yii::app()->params['facebookappid']); ?>		
+<?php echo $facebook->includeScript(Yii::app()->params['facebookappid']); ?>
+
+<div id="footerblog">
+    <h4 class="icon15"><?php echo Yii::t('global', 'Latest News'); ?></h4>
+    <ul id="listnewsfooter">
+
+        <?php if (Yii::app()->params['latestnewscat']): ?>
+
+            <?php
+            $lastestnews = Blog::model()->findAll(array(
+                'order' => 'postdate DESC',
+                'condition' => 'catid=:catid AND language=:lang AND status=1',
+                'params' => array(':lang' => Yii::app()->language, ':catid' => Yii::app()->params['latestnewscat']), 'limit' => 4)
+            );
+            ?>
+
+            <?php if (is_array($lastestnews) && count($lastestnews)): ?>
+
+                <?php foreach ($lastestnews as $news): ?>
+                    <li><a href="<?php echo Yii::app()->createUrl('blog/view/' . $news->alias, array('lang' => false)); ?>" title='<?php echo CHtml::encode($news->description); ?>'><?php echo CHtml::encode($news->title); ?></a></li>
+                <?php endforeach; ?>
+
+            <?php else: ?>
+                <li><?php echo Yii::t('index', 'No News To Display.'); ?></li>
+            <?php endif; ?>
+
+        <?php else: ?>
+            <li><?php echo Yii::t('index', 'No News To Display.'); ?></li>
+        <?php endif; ?>
+    </ul>
+</div>
+
+<div id="footerscr">
+    <h4 class="icon16"><?php echo Yii::t('global', 'Latest Users Joined'); ?></h4>
+    <?php if ($this->beginCache('indexlastestusers', array('duration' => 3600))) { ?>
+        <ul id="listscrfooter">
+            <?php $last = Members::model()->findAll(array('order' => 'joined DESC', 'limit' => 4)); ?>
+
+            <?php if (is_array($last) && count($last)): ?>
+                <?php foreach ($last as $member): ?>
+                    <li><a href='<?php echo Yii::app()->createUrl('user/' . $member->id . '-' . $member->seoname, array('lang' => false)); ?>'>
+                            <?php
+                            $this->widget('ext.VGGravatarWidget', array(
+                                'size' => 60,
+                                'email' => $member->email,
+                                'htmlOptions' => array(
+                                    'class' => 'imgavatar',
+                                    'title' => CHtml::encode($member->username),
+                                    'alt' => 'avatar'
+                                    )));
+                            ?>
+                        </a></li>
+                <?php endforeach; ?>	
+            <?php endif; ?>
+        </ul>
+        <?php
+        $this->endCache();
+    }
+    ?>
+</div>                    
+
+<!-- Twitter -->
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/twitter.js', CClientScript::POS_END); ?>
+<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/gettwitter.js', CClientScript::POS_END); ?>
+<div id="placetwitter">
+    <p id="texttwitter">
+        <?php echo Yii::t('index', 'Please wait, Loading twitter'); ?> 
+        <img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/loading.gif" alt="Loading" class="imgloading" />
+    </p>
+</div>
+<!-- End Twitter -->
+
+<div class="clear"></div>

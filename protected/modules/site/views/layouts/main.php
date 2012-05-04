@@ -50,9 +50,6 @@
                     <li class="last"><a href="<?php echo $this->createUrl('index/index', array('lang' => 'en')); ?>"><?php echo Yii::t('global', 'English'); ?></a></li>
                 </ul>
             </div>
-            <?php if (Yii::app()->getController()->id == 'index'): ?>
-                <?php //$this->widget('widgets.menuslide');  ?>
-            <?php endif; ?>
             <div id="placemainmenu">
                 <ul id="mainmenu">
 
@@ -83,7 +80,7 @@
 
                 </ul>
             </div>
-            <div id="contenttop"></div>
+            <div id="contenttop"></div>            
             <div id="content">
                 <?php if (count($this->breadcrumbs)): ?>
                     <div id="newsinfo">
@@ -130,62 +127,6 @@
 
             </div>
 
-            <?php if (Yii::app()->getController()->id == 'index'): ?>
-
-                <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/twitter.js', CClientScript::POS_END); ?>
-                <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/gettwitter.js', CClientScript::POS_END); ?>
-
-                <div id="contentbottom">	
-                    <div id="footerblog">
-                        <h4 class="icon15"><?php echo Yii::t('global', 'Latest News'); ?></h4>
-                        <ul id="listnewsfooter">
-
-                            <?php if (Yii::app()->params['latestnewscat']): ?>
-
-                                <?php $lastestnews = Blog::model()->findAll(array('order' => 'postdate DESC', 'condition' => 'catid=:catid AND language=:lang AND status=1', 'params' => array(':lang' => Yii::app()->language, ':catid' => Yii::app()->params['latestnewscat']), 'limit' => 4)); ?>
-
-                                <?php if (is_array($lastestnews) && count($lastestnews)): ?>
-
-                                    <?php foreach ($lastestnews as $news): ?>
-                                        <li><a href="<?php echo Yii::app()->createUrl('blog/view/' . $news->alias, array('lang' => false)); ?>" title='<?php echo CHtml::encode($news->description); ?>'><?php echo CHtml::encode($news->title); ?></a></li>
-                                    <?php endforeach; ?>
-
-                                <?php else: ?>
-                                    <li><?php echo Yii::t('index', 'No News To Display.'); ?></li>
-                                <?php endif; ?>
-
-                            <?php else: ?>
-                                <li><?php echo Yii::t('index', 'No News To Display.'); ?></li>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-                    <div id="footerscr">
-                        <h4 class="icon16"><?php echo Yii::t('global', 'Latest Users Joined'); ?></h4>
-                        <?php if ($this->beginCache('indexlastestusers', array('duration' => 3600))) { ?>
-                            <ul id="listscrfooter">
-                                <?php $last = Members::model()->findAll(array('order' => 'joined DESC', 'limit' => 4)); ?>
-
-                                <?php if (is_array($last) && count($last)): ?>
-                                    <?php foreach ($last as $member): ?>
-                                        <li><a href='<?php echo Yii::app()->createUrl('user/' . $member->id . '-' . $member->seoname, array('lang' => false)); ?>'><?php $this->widget('ext.VGGravatarWidget', array('size' => 60, 'email' => $member->email, 'htmlOptions' => array('class' => 'imgavatar', 'title' => CHtml::encode($member->username), 'alt' => 'avatar'))); ?></a></li>
-                                    <?php endforeach; ?>	
-                                <?php endif; ?>
-                            </ul>
-                            <?php $this->endCache();
-                        } ?>
-                    </div>
-                    <div id="placetwitter">
-                        <p id="texttwitter">
-                            <?php echo Yii::t('index', 'Please wait, Loading twitter'); ?> 
-                            <img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/loading.gif" alt="Loading" class="imgloading" />
-                        </p>
-                    </div>
-
-                    <div class="clear"></div>
-
-                </div>
-            <?php endif; ?>
-
             <div id='bottomnew'>&nbsp;</div>
 
             <div>
@@ -203,21 +144,26 @@
                     <?php endif; ?>
                 </ul>
             </div>
-        </div>
+        </div>        
+        
         <!-- Feedback button -->
         <div class='feedbackbutton'>
             <a href='<?php echo $this->createUrl('contactus/index'); ?>'>
                 <img src='<?php echo Yii::app()->themeManager->baseUrl; ?>/images/feedbackbutton<?php echo Yii::app()->language; ?>.png' alt='' />
             </a>
         </div>
+        <!-- End Feedback button -->
+        
+        <!-- Google Analytics -->
         <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            /*var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
             try {
                 var pageTracker = _gat._getTracker("UA-15161565-1");
                 pageTracker._trackPageview();
-            } catch(err) {}</script>
+            } catch(err) {}*/
+        </script>
+        <!-- End Google Analytics -->
+        
     </body>
 </html>
