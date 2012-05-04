@@ -16,7 +16,7 @@ class IndexController extends SiteBaseController {
      * Index action
      */
     public function actionindex() {
-
+        
         $model = new Newsletter;
         $sent = false;
         if (isset($_POST['Newsletter'])) {
