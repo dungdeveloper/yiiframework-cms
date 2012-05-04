@@ -27,19 +27,19 @@
             </script>
             <![endif]-->
 
-<?php
-Yii::app()->clientScript->registerCoreScript('jquery');
+            <?php
+            Yii::app()->clientScript->registerCoreScript('jquery');
 
 //Yii::app()->clientScript->registerScriptFile( Yii::app()->themeManager->baseUrl . '/script/ui_core.js' , CClientScript::POS_END );
 //Yii::app()->clientScript->registerScriptFile( Yii::app()->themeManager->baseUrl . '/script/ui_tabs.js' , CClientScript::POS_END );
 //Yii::app()->clientScript->registerScriptFile( Yii::app()->themeManager->baseUrl . '/script/lightbox.js' , CClientScript::POS_END );
 //Yii::app()->clientScript->registerScriptFile( Yii::app()->themeManager->baseUrl . '/script/bubblepopup.js' , CClientScript::POS_END );
 
-Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/tiptip/jquery.tipTip.minified.js', CClientScript::POS_END);
-Yii::app()->clientScript->registerCssFile(Yii::app()->themeManager->baseUrl . '/script/tiptip/tipTip.css', 'screen');
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/tiptip/jquery.tipTip.minified.js', CClientScript::POS_END);
+            Yii::app()->clientScript->registerCssFile(Yii::app()->themeManager->baseUrl . '/script/tiptip/tipTip.css', 'screen');
 
-Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/global.js', CClientScript::POS_END);
-?>
+            Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/global.js', CClientScript::POS_END);
+            ?>
     </head>
     <body>
         <div id="wrapper">
@@ -50,32 +50,32 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl .
                     <li class="last"><a href="<?php echo $this->createUrl('index/index', array('lang' => 'en')); ?>"><?php echo Yii::t('global', 'English'); ?></a></li>
                 </ul>
             </div>
-<?php if (Yii::app()->getController()->id == 'index'): ?>
-    <?php //$this->widget('widgets.menuslide');  ?>
-<?php endif; ?>
+            <?php if (Yii::app()->getController()->id == 'index'): ?>
+                <?php //$this->widget('widgets.menuslide');  ?>
+            <?php endif; ?>
             <div id="placemainmenu">
                 <ul id="mainmenu">
 
-            <?php
-            $headerMenu = array(
-                //'index/index' => Yii::t('global', 'Home'),
-                'documentation/index' => Yii::t('global', 'Documentation'),
-                'tutorials/index' => Yii::t('global', 'Tutorials'),
-                'extensions/index' => Yii::t('global', 'Extensions'),
-                'blog/index' => Yii::t('global', 'Blog'),
-                'forum/index' => Yii::t('global', 'Forum'),
-                'search/index' => Yii::t('global', 'Search'),
-                'contactus/index' => Yii::t('global', 'Contact Us'),
-            );
+                    <?php
+                    $headerMenu = array(
+                        //'index/index' => Yii::t('global', 'Home'),
+                        'documentation/index' => Yii::t('global', 'Documentation'),
+                        'tutorials/index' => Yii::t('global', 'Tutorials'),
+                        'extensions/index' => Yii::t('global', 'Extensions'),
+                        'blog/index' => Yii::t('global', 'Blog'),
+                        'forum/index' => Yii::t('global', 'Forum'),
+                        'search/index' => Yii::t('global', 'Search'),
+                        'contactus/index' => Yii::t('global', 'Contact Us'),
+                    );
 
-            // Show the register or login button					
-            if (Yii::app()->user->isGuest) {
-                $headerMenu = array_merge($headerMenu, array(
-                    'register/index' => Yii::t('global', 'Register'),
-                    'login/index' => Yii::t('global', 'Login'),
-                        ));
-            }
-            ?>
+                    // Show the register or login button					
+                    if (Yii::app()->user->isGuest) {
+                        $headerMenu = array_merge($headerMenu, array(
+                            'register/index' => Yii::t('global', 'Register'),
+                            'login/index' => Yii::t('global', 'Login'),
+                                ));
+                    }
+                    ?>
 
                     <?php foreach ($headerMenu as $key => $value): ?>
                         <li><a href='<?php echo $this->createUrl($key); ?>'><?php echo $value; ?></a></li>
@@ -85,40 +85,40 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl .
             </div>
             <div id="contenttop"></div>
             <div id="content">
-                    <?php if (count($this->breadcrumbs)): ?>
+                <?php if (count($this->breadcrumbs)): ?>
                     <div id="newsinfo">
-    <?php
-    $this->widget('zii.widgets.CBreadcrumbs', array(
-        'homeLink' => CHtml::link(Yii::t('global', 'Home'), array('index/index')),
-        'links' => $this->breadcrumbs
-    ));
-    ?>
+                        <?php
+                        $this->widget('zii.widgets.CBreadcrumbs', array(
+                            'homeLink' => CHtml::link(Yii::t('global', 'Home'), array('index/index')),
+                            'links' => $this->breadcrumbs
+                        ));
+                        ?>
                     </div>
-                    <?php endif; ?>
+                <?php endif; ?>
 
                 <!-- Start Notifications -->
-                    <?php if (Yii::app()->user->hasFlash('error')): ?>
+                <?php if (Yii::app()->user->hasFlash('error')): ?>
                     <div class="notification errorshow png_bg">
                         <a href="#" class="close"><img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/cross_grey_small.png" title="<?php echo Yii::t('global', 'Close this notification'); ?>" alt="close" /></a>
                         <div><?php echo Yii::app()->user->getFlash('error'); ?></div>
                     </div>
                 <?php endif; ?>
 
-<?php if (Yii::app()->user->hasFlash('attention')): ?>
+                <?php if (Yii::app()->user->hasFlash('attention')): ?>
                     <div class="notification attention png_bg">
                         <a href="#" class="close"><img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/cross_grey_small.png" title="<?php echo Yii::t('global', 'Close this notification'); ?>" alt="close" /></a>
                         <div><?php echo Yii::app()->user->getFlash('attention'); ?></div>
                     </div>
                 <?php endif; ?>
 
-<?php if (Yii::app()->user->hasFlash('information')): ?>
+                <?php if (Yii::app()->user->hasFlash('information')): ?>
                     <div class="notification information png_bg">
                         <a href="#" class="close"><img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/cross_grey_small.png" title="<?php echo Yii::t('global', 'Close this notification'); ?>" alt="close" /></a>
                         <div><?php echo Yii::app()->user->getFlash('information'); ?></div>
                     </div>
                 <?php endif; ?>
 
-<?php if (Yii::app()->user->hasFlash('success')): ?>
+                <?php if (Yii::app()->user->hasFlash('success')): ?>
                     <div class="notification success png_bg">
                         <a href="#" class="close"><img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/cross_grey_small.png" title="<?php echo Yii::t('global', 'Close this notification'); ?>" alt="close" /></a>
                         <div><?php echo Yii::app()->user->getFlash('success'); ?></div>
@@ -126,25 +126,25 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl .
                 <?php endif; ?>			
                 <!-- End Notifications -->
 
-<?php echo $content; ?>
+                <?php echo $content; ?>
 
             </div>
 
-<?php if (Yii::app()->getController()->id == 'index'): ?>
+            <?php if (Yii::app()->getController()->id == 'index'): ?>
 
-                    <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/twitter.js', CClientScript::POS_END); ?>
-    <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/gettwitter.js', CClientScript::POS_END); ?>
+                <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/twitter.js', CClientScript::POS_END); ?>
+                <?php Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl . '/script/gettwitter.js', CClientScript::POS_END); ?>
 
                 <div id="contentbottom">	
                     <div id="footerblog">
                         <h4 class="icon15"><?php echo Yii::t('global', 'Latest News'); ?></h4>
                         <ul id="listnewsfooter">
 
-    <?php if (Yii::app()->params['latestnewscat']): ?>
+                            <?php if (Yii::app()->params['latestnewscat']): ?>
 
-        <?php $lastestnews = Blog::model()->findAll(array('order' => 'postdate DESC', 'condition' => 'catid=:catid AND language=:lang AND status=1', 'params' => array(':lang' => Yii::app()->language, ':catid' => Yii::app()->params['latestnewscat']), 'limit' => 4)); ?>
+                                <?php $lastestnews = Blog::model()->findAll(array('order' => 'postdate DESC', 'condition' => 'catid=:catid AND language=:lang AND status=1', 'params' => array(':lang' => Yii::app()->language, ':catid' => Yii::app()->params['latestnewscat']), 'limit' => 4)); ?>
 
-        <?php if (is_array($lastestnews) && count($lastestnews)): ?>
+                                <?php if (is_array($lastestnews) && count($lastestnews)): ?>
 
                                     <?php foreach ($lastestnews as $news): ?>
                                         <li><a href="<?php echo Yii::app()->createUrl('blog/view/' . $news->alias, array('lang' => false)); ?>" title='<?php echo CHtml::encode($news->description); ?>'><?php echo CHtml::encode($news->title); ?></a></li>
@@ -161,18 +161,18 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl .
                     </div>
                     <div id="footerscr">
                         <h4 class="icon16"><?php echo Yii::t('global', 'Latest Users Joined'); ?></h4>
-                            <?php if ($this->beginCache('indexlastestusers', array('duration' => 3600))) { ?>
+                        <?php if ($this->beginCache('indexlastestusers', array('duration' => 3600))) { ?>
                             <ul id="listscrfooter">
-        <?php $last = Members::model()->findAll(array('order' => 'joined DESC', 'limit' => 4)); ?>
+                                <?php $last = Members::model()->findAll(array('order' => 'joined DESC', 'limit' => 4)); ?>
 
-        <?php if (is_array($last) && count($last)): ?>
-                                <?php foreach ($last as $member): ?>
+                                <?php if (is_array($last) && count($last)): ?>
+                                    <?php foreach ($last as $member): ?>
                                         <li><a href='<?php echo Yii::app()->createUrl('user/' . $member->id . '-' . $member->seoname, array('lang' => false)); ?>'><?php $this->widget('ext.VGGravatarWidget', array('size' => 60, 'email' => $member->email, 'htmlOptions' => array('class' => 'imgavatar', 'title' => CHtml::encode($member->username), 'alt' => 'avatar'))); ?></a></li>
                                     <?php endforeach; ?>	
                                 <?php endif; ?>
                             </ul>
-                                <?php $this->endCache();
-                            } ?>
+                            <?php $this->endCache();
+                        } ?>
                     </div>
                     <div id="placetwitter">
                         <p id="texttwitter"><?php echo Yii::t('index', 'Please wait, Loading twitter'); ?> <img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/loading.gif" alt="Loading" class="imgloading" /></p>
@@ -181,7 +181,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl .
                     <div class="clear"></div>
 
                 </div>
-<?php endif; ?>
+            <?php endif; ?>
 
             <div id='bottomnew'>&nbsp;</div>
 
@@ -191,13 +191,13 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->themeManager->baseUrl .
                     <li><?php echo CHtml::link(Yii::t('global', 'About Us'), array('/about-us', 'lang' => false)); ?></a></li>
                     <li><?php echo CHtml::link(Yii::t('global', 'F.A.Q'), array('/faq', 'lang' => false)); ?></a></li>
                     <li><?php echo CHtml::link(Yii::t('global', 'Terms Of Service'), array('/terms-of-service', 'lang' => false)); ?></li>
-<?php if (Yii::app()->user->id): ?>
+                    <?php if (Yii::app()->user->id): ?>
                         <li><?php echo CHtml::link(Yii::t('global', 'Profile'), array('/user/' . Yii::app()->user->id . '-' . Yii::app()->user->seoname, 'lang' => false)); ?></li>
                         <li><?php echo CHtml::link(Yii::t('global', 'Logout'), array('logout/index')); ?></a></li>
-<?php endif; ?>
+                    <?php endif; ?>
                     <?php if (( Yii::app()->user->role == 'admin' || Yii::app()->user->checkAccess('op_acp_access'))): ?>
                         <li><?php echo CHtml::link(Yii::t('global', 'Admin'), array('admin/index'), array('target' => '_blank')); ?></a></li>
-<?php endif; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

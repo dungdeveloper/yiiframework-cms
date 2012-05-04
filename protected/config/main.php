@@ -46,7 +46,7 @@ return array(
         'application.extensions.*',
     ),
     'theme' => 'default2',
-    'name' => 'YiiFramework CMS',
+    'name' => 'YiiFramework VN',
     'defaultController' => 'site/index',
     'layout' => 'main',
     'charset' => 'UTF-8',
