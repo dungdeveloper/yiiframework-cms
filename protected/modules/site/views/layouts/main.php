@@ -175,7 +175,10 @@
                         } ?>
                     </div>
                     <div id="placetwitter">
-                        <p id="texttwitter"><?php echo Yii::t('index', 'Please wait, Loading twitter'); ?> <img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/loading.gif" alt="Loading" class="imgloading" /></p>
+                        <p id="texttwitter">
+                            <?php echo Yii::t('index', 'Please wait, Loading twitter'); ?> 
+                            <img src="<?php echo Yii::app()->themeManager->baseUrl; ?>/images/loading.gif" alt="Loading" class="imgloading" />
+                        </p>
                     </div>
 
                     <div class="clear"></div>

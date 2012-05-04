@@ -1,5 +1,5 @@
 getTwitters('texttwitter', { 
-	  id: 'yiiframeworkil', 
+	  id: 'dungdeveloper', 
 	  count: 1, 
 	  enableLinks: true, 
 	  ignoreReplies: true, 
